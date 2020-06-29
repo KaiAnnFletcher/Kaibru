@@ -1,0 +1,41 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+
+} */
+
+/* body, html {
+  height: 100%;
+} */
+
+body {
+  /* The image used */
+  background-image: url(https://i.pinimg.com/originals/2b/3a/b7/2b3ab7d54dbb6f4ed953209a2e2881ce.jpg);
+ /* Full height */
+ height: 100%;
+ width: 100%;
+ /* Center and scale the image nicely */
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;
+ opacity: 0.8
+}

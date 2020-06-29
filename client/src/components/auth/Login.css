@@ -1,0 +1,65 @@
+.styleLoginWrap{
+    margin-top:20%;
+    /* background:rgba(0,0,0, .2); */
+    /* border:2px solid white; */
+    /* background:#4c9a00; */
+    border-radius:5px;
+    /* opacity:0.9; */
+}
+.styleLoginSubWrap{
+    margin-top:20px;
+    display:inline-block;
+    padding:20px;
+    border-radius:5px;
+    border:2px solid mintcream;
+    background: teal;
+    /* opacity:0.9; */
+}
+
+.styleLogin{
+    border-radius:5px;
+    padding:50px;
+    /* background:#4c9a00;
+        opacity:0.9; */
+
+}
+
+.login label{
+    color: black;
+    margin-left:11px;
+}
+
+.login input {
+display: block;
+margin:10px;
+border-radius:5px;
+}
+
+.login button{
+float:right;
+margin-right:11px;
+background: black;
+color: mintcream
+}
+
+/* .styleLoginError{    
+    color: white;
+    background: red;
+    opacity:0.6;
+    text-align:center;
+    border-radius:5px;
+} */
+
+/* .styleLoggedMsg{    
+    color: white;
+    background: green;
+    opacity:1;
+    text-align:center;
+    border-radius:5px;
+} */
+
+@media only screen and (max-width: 640px) {
+    .styleLoginSubWrap{
+        float:left;
+    }
+  };

@@ -1,0 +1,66 @@
+{
+  "name": "kaibru",
+  "version": "1.0.0",
+  "description": "sustainabililty application",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix .",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
+    "start:dev-server": "nodemon --ignore 'client/*' --exec babel-node server.js",
+    "scrape": "node routes/api/scrape.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaiAnnFletcher/Kaibru.git"
+  },
+  "keywords": [
+    "sustainability"
+  ],
+  "author": "Kai-Ann Fletcher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KaiAnnFletcher/Kaibru/issues"
+  },
+  "homepage": "https://github.com/KaiAnnFletcher/Kaibru#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^1.7.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "sequelize": "^6.0.0",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/node": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "concurrently": "^5.2.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "mocha": "^7.2.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^1.13.7"
+  }
+}

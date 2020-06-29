@@ -1,0 +1,38 @@
+.navbar-nav.navbar-center {
+    line-height: 0px;
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    /* margin-bottom: 0;  */
+    color: mintcream;
+}
+
+.nav-item1{
+    margin-left: 50;
+    color: mintcream;
+  }
+  
+  .nav-item2 {
+    margin-left: 100;
+    color: mintcream;
+  }
+  
+  .nav-item3 {
+    margin-left: 150;
+    color: mintcream;
+  }
+
+  .nav-item4 {
+    margin-left: 200;
+    color: mintcream;
+  }
+
+  .nav-item5 {
+    margin-left: 250;
+    color: mintcream;
+  }
+
+  .nav-item6 {
+    margin-left: 250;
+    color: mintcream;
+  }

@@ -1,0 +1,40 @@
+h1 {
+    color: black;
+    font-weight: bolder;
+}
+
+h2 {
+    color: black;
+    font-weight: bolder; 
+}
+
+h5 {
+    color: black;
+    font-weight: bolder;
+    line-height: 60px;
+    font-size: larger
+}
+
+.styleHomePage {
+    background-color: lightblue;
+    margin-top: 250px;
+    
+}
+
+.styleMissionPage {
+    background-color: lightblue;
+    margin-top: 60px;  
+}
+
+.styleAboutUsPage {
+    background-color: lightblue;
+    margin-top: 60px;  
+}
+
+.StyleThumbnail{
+    background-color: lightblue;
+}
+
+.StyleBrowseMessage {
+    background-color: lightblue;
+}

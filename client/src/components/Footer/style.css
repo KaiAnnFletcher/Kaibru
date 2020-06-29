@@ -1,0 +1,17 @@
+.footer {
+    text-align: center;
+      top: 380px;
+      min-height: 80px;
+      background: teal;
+      position: relative;
+    }
+    
+    .footer span {
+      color: mintcream;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3px;
+      background: darkslategrey;
+    }
