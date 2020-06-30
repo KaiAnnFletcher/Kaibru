@@ -1,11 +1,10 @@
 require("dotenv").config();
-
+var mongoose = require("mongoose");
 var express = require("express");
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var passport = require("passport");
 var logger = require("morgan");
-//const mongoose = require("mongoose");
 var db = require("./models")
 var routes = require("./routes");
 var app = express();
@@ -26,42 +25,23 @@ console.log("routes:",routes);
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static("client/build"));
 }
-// app.use(cors());
-// app.use(logger("dev"));
-// //Add routes, both API and view
-// app.use(routes);
-// console.log("routes:",routes);
-//replaced with below:
-//app.use(app.router);
-//routes.initialize(app);
-  
-// //Connect to the Mongo DB 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kaibru");
 
-var syncOptions = { force: false };
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-    syncOptions.force = true;
-};
+// Connect to the Mongo DB 
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kaibru");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kaibru");
+
 //Passport middleware
 app.use(passport.initialize());
 
 //Passport config
 require("./config/passport")(passport);
 
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-    app.listen(PORT, function() {
-      console.log(
-        "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-        PORT,
-        PORT
-      );
-    });
-  });
+// Send every other request to the React app
+// Define any API routes before this runs
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
-// //Start the API server
-// app.listen(PORT, function() {
-//     console.log(`🌎 ==> API Server now listening on PORT ${PORT}!`);
-// });
+app.listen(PORT, () => {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
+});

@@ -1,6 +1,6 @@
 var router = require("express").Router();
-var website_1Controller = require("../../controllers")
-var Items_1 = require("../../models");
+var website_1Controller = require("../../controllers/website_1controller")
+var Items_1 = require("../../models/items_1");
 require("./website_1_db");
 
 // Our scraping tools
@@ -29,7 +29,7 @@ $("article").each(function(i, element) {
 //save empty result object
 var result = {};
 //thumbnail
-result.thumbnail = $(this)
+result.resultThumbnail = $(this)
 //greenheartshop
 .children("figure.product-item-thumbnail")
 .children("a")
@@ -37,45 +37,44 @@ result.thumbnail = $(this)
 .children("img")
 .attr("src")
 
-console.log(result.thumbnail)
+console.log(result.resultThumbnail)
 
 var result = {}
 //details
-result.detail= $(this)
+result.resultDetails = $(this)
 //greenheartshop
 .children("div.product-item-details")
 .text()
 
-console.log(result.detail)
+console.log(result.resultDetails)
 
 var result = {}
 //link
-result.link = $(this)
+result.resultLink = $(this)
 //greenheartshop
 .children("figure.product-item-thumbnail")
 .children("a")
 .attr("href")
 
-console.log(result.link)
+console.log(result.resultLink)
 
 //Capture the scraped data and save to database
 console.log("Capturing Scrape...")
-if(result.thumbnail !== '' || result.link !== '') {
-    var thumbnailResult = result.thumbnail;
-    var detailsResult = result.detail;
-    var linkResult = result.link.match(/\d{4,6}/g);
-    var promise = Items_1;
-    saveToDatabase(thumbnailResult, detailsResult, linkResult)
-    console.log("saveToDatabase");
-    promises.push(promise);
+if(result.resultThumbnail !== '' || result.resultLink !== '') {
+    //result.resultLinkId = result.link.match(/\d{4,6}/g)[0];
+    var promise = Items_1
+    .findOneAndUpdate(result, result, {upsert:true, new:true})
+    promises.push(promise)
 }
-Promise.all(promises).then((data) => {
-    res.json(data)
-});
+Promise.all(promises)
+// Promise.all(promises).then((data) => {
+//     res.json(data)
 });
 });
 next()
 });
+
+
 router.get('/scrape', website_1Controller.findAll)
 
 //Start of code for the specific scrape
@@ -123,31 +122,30 @@ router.get("/search/:search", function (req, res, next) {
 //Capture the scraped data and save to database
 console.log("Capturing Scrape data...")
 if(result.detail !== '' && result.link !== '') {
-    var thumbnailResult = result.thumbnail;
-    var detailsResult = result.detail;
-    var linkResult = result.link.match(/\d{4,6}/g);
-    var promise = Items_1;
-    saveToDatabase(thumbnailResult, detailsResult, linkResult)
-    console.log("saveToDatabase");
+    //result.resultLinkId = result.link.match(/\d{4,6}/g)[0];
+    var promise = Items_1
+    .findOneAndUpdate(result, result, {upsert:true, new:true})
     promises.push(promise);
 }
-Promise.all(promises).then((data) => {
-    res.json(data);
+Promise.all(promises)
+// Promise.all(promises).then((data) => {
+//     res.json(data);
 });            
-});
 });
 next()
 });
-router.get('/search', website_1Controller.findAll)
 
-// router.get('/scrape:id', (req, res, next) => {
-//     console.log("Routing...")
-//     website_1Controller.findById()
-//      .then((search) => {
-//      search ? res.status(200).send({ singleItems_1: search }) : res.status(200).send({ errMsg: "Search does not exist" 
-//      }).catch(err => next(err))
-//     });
-// });
+
+ router.get('/search', website_1Controller.findAll)
+
+// router.route("/")
+//   .get(recipeController.findAll)
+//   .post(recipeController.create);
+
+// router
+//   .route("/:id")
+//   .get(recipeController.findById)
+//   .delete(recipeController.remove);
 
 module.exports = router;
 

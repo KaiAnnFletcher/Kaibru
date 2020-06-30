@@ -209,8 +209,8 @@ async searchWebsite_1() {
                     {this.state.data.map(data => (
                     <ListItem key={data.data}>
                     <Container>
-                    {this.state.data.resultLink ? (
-                    <img className ="StyleThumbnail" alt="thumbnail" src={data.resultLink} ></img>
+                    {this.state.data.resultThumbnail ? (
+                    <img className ="StyleThumbnail" alt="thumbnail" src={data.resultThumbnail} ></img>
                     ) : (<img className ="StyleThumbnail" alt="thumbnail_1" src="https://cdn11.bigcommerce.com/s-tzlp6/images/stencil/360x360/logo_1415602615__88358.original.png" ></img>)}
                     <p>{data.resultDetails}</p>
                     <p>{data.resultLink}</p>
