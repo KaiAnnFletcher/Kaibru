@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Connect to the Mongo DB 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kaibru");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kaibru");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://kaibru_user:kaibru1@ds255577.mlab.com:55577/heroku_wvqjbs1c");
 
 //Passport middleware
 app.use(passport.initialize());
@@ -38,7 +38,7 @@ require("./config/passport")(passport);
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
