@@ -18,7 +18,7 @@ console.log("scraping started...");
 //Grab the html body with axios    
 axios.get("https://greenheartshop.org/").then(function(response) {
 //Load to cheerio and save to $ selector
-    console.log("Scraping all gimmethegoodstuff mainpage...");
+    console.log("Scraping all greenheartshop mainpage...");
     var $ = cheerio.load(response.data);
     var output = [];
     var promises = [];
@@ -61,7 +61,7 @@ console.log(result.resultLink)
 //Capture the scraped data and save to database
 console.log("Capturing Scrape...")
 if(result.resultThumbnail !== '' || result.resultLink !== '') {
-    //result.resultLinkId = result.link.match(/\d{4,6}/g)[0];
+    //result.resultLinkId = result.resultLink.match(/\d{4,6}/g)[0];
     var promise = Items_1
     .findOneAndUpdate(result, result, {upsert:true, new:true})
     promises.push(promise)
@@ -90,7 +90,7 @@ router.get("/search/:search", function (req, res, next) {
             var result = {};
 
             //thumbnail
-            result.thumbnail = $(this)
+            result.resultThumbnail = $(this)
             //greenheartshop
             .children("figure.product-item-thumbnail")
             .children("a")
@@ -98,31 +98,31 @@ router.get("/search/:search", function (req, res, next) {
             .children("img")
             .attr("src")
 
-            console.log(result.thumbnail)
+            console.log(result.resultThumbnail)
 
             var result = {};
             //details
-            result.detail= $(this)
+            result.resultDetails= $(this)
             //greenheartshop
             .children("div.product-item-details")
             .text()
 
-            console.log(result.detail)
+            console.log(result.resultDetails)
 
             var result = {}
             //link
-            result.link = $(this)
+            result.resultLink = $(this)
             //greenheartshop
             .children("figure.product-item-thumbnail")
             .children("a")
             .attr("href")
             
-            console.log(result.link)
+            console.log(result.resultLink)
 
 //Capture the scraped data and save to database
 console.log("Capturing Scrape data...")
-if(result.detail !== '' && result.link !== '') {
-    //result.resultLinkId = result.link.match(/\d{4,6}/g)[0];
+if(result.resultDetails !== '' && result.resultLink !== '') {
+//result.resultLinkId = result.resultLink.match(/\d{4,6}/g)[0];
     var promise = Items_1
     .findOneAndUpdate(result, result, {upsert:true, new:true})
     promises.push(promise);

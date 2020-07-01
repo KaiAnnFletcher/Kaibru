@@ -57,6 +57,19 @@ async searchWebsite_1() {
   };
 
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+
+    let fun = data => {
+
+        this.setState({ data: data.data })
+
+    };
+    API.scrapeBySearch(this.state.search)
+        .then(Array.from(fun))
+        .catch(err => { console.log(err) })
+}
+
   // handleFormSubmit = event => {
   //    event.preventDefault();
 
@@ -83,22 +96,22 @@ async searchWebsite_1() {
   //     });
   //   }
   
-  handleFormSubmit = (event) => {
-    event.preventDefault();
+  // handleFormSubmit = (event) => {
+  //   event.preventDefault();
     
-    //  fun = (data) => {
-    //   this.setState( {data: data.data} )
-    //   console.log(data)
-    //   console.log( {data: data.data} )
-    // };
-    API.scrapeBySearch(this.state.search)
-          .then(async (data)  => {
-          console.log(data)
-          this.setState({ data: data.data })
-        })
+  //   //  fun = (data) => {
+  //   //   this.setState( {data: data.data} )
+  //   //   console.log(data)
+  //   //   console.log( {data: data.data} )
+  //   // };
+  //   API.scrapeBySearch(this.state.search)
+  //         .then(async (data)  => {
+  //         console.log(data)
+  //         this.setState({ data: data.data })
+  //       })
         
-        //.catch(err => { console.log(err) })
-    }       
+  //       //.catch(err => { console.log(err) })
+  //   }       
     
 
 //   handleFormSubmit = event => {
@@ -213,7 +226,11 @@ async searchWebsite_1() {
                     <img className ="StyleThumbnail" alt="thumbnail" src={data.resultThumbnail} ></img>
                     ) : (<img className ="StyleThumbnail" alt="thumbnail_1" src="https://cdn11.bigcommerce.com/s-tzlp6/images/stencil/360x360/logo_1415602615__88358.original.png" ></img>)}
                     <p>{data.resultDetails}</p>
-                    <p>{data.resultLink}</p>
+                    
+                    
+                    <a target = "_blank" href ={data.resultLink}>{data.resultLink}</a>
+                    
+                    
                     </Container>
                     
                     {this.state.verified ? (

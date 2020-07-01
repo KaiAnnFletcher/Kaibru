@@ -55,7 +55,7 @@ class About extends Component {
                 With roughly two years of full-stack (MERN) development experience under her belt, Kai-Ann enjoys building various projects while learning new concepts. <br />
                 &nbsp;
                 &nbsp;
-                Building Kaibru from the ground up was not quite an easy process, but the team decided that it would make the vision and mission more meaningful. <br/>
+                Building Kaibru from the ground up using strictly JavaScript frameworks was not quite an easy process, but the team decided that it would make the vision and mission more meaningful. <br/>
                 &nbsp;
                 &nbsp;
                 With that in mind, Kai-Ann is excited to continue the building phase for Kaibru and is also excited to see the platform grow over time.
