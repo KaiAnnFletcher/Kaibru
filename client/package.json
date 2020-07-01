@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "homepage": "https://vast-headland-77632.herokuapp.com/",
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
