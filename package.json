@@ -1,7 +1,7 @@
 {
   "name": "kaibru",
   "version": "1.0.0",
-  "homepage": "https://flannel-loon-43163.herokuapp.com/kaibru/",
+  "homepage": ".",
   "description": "sustainabililty application",
   "main": "server.js",
   "scripts": {
