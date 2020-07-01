@@ -34,14 +34,14 @@ require("./config/passport")(passport);
 
 // Connect to the Mongo DB 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kaibru");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://kaibru_user:kaibru1@ds255577.mlab.com:55577/heroku_wvqjbs1c");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://kaibru_user:kaibru1@ds035488.mlab.com:35488/heroku_tk82nh0f");
 
 //Send every other request to the React app
 //Define any API routes before this runs
--app.get('/', function (req, res) {
-+app.get('/*', function (req, res) {
-   res.sendFile(path.join(__dirname, "/client/build/index.html"));
- });
+// -app.get('/', function (req, res) {
+// +app.get('/*', function (req, res) {
+//    res.sendFile(path.join(__dirname, "/client/build/index.html"));
+//  });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
