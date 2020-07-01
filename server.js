@@ -26,21 +26,21 @@ if (process.env.NODE_ENV === 'production') {
    app.use("/static", express.static("client/build"));
 }
 
+app.use(passport.initialize());
+
+//Passport middleware
+//Passport config
+require("./config/passport")(passport);
+
 // Connect to the Mongo DB 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kaibru");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://kaibru_user:kaibru1@ds255577.mlab.com:55577/heroku_wvqjbs1c");
 
-//Passport middleware
-app.use(passport.initialize());
-
-//Passport config
-require("./config/passport")(passport);
-
 //Send every other request to the React app
 //Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
