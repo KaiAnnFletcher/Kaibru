@@ -1,13 +1,23 @@
 # Kaibru
 
-*Project Description:* Kaibru specifically is being designed as a one-stop hub for users to browse sustainable products and services via tapping into open APIs or web-scraping.
+*Project Description:* 
+Kaibru specifically is being designed as a one-stop hub for users to browse sustainable products and services.
 
-*Core Responsibilities:* Principal Developer
+This is our beta release which means that there is still work to be completed on this project.
 
-*Tools/languages used:* HTML5, CSS/Bootstrap, JavaScript/jQuery, React.js, Sequelize
+The first website is featured using webscraping and we have ensured that there are links which route back to the original website.
 
-This project has a working sequelize back-end (version ^6.0.0).
+*Challenges:*
+Web-scraping is proving to be a challenge currently. Due to an issue with undefined attributes we had to switch our back-end from Sequelize to MongoDB. Even still we are only
 
-Alot of websites using shopify, bigcommerce or woocommerce platforms cannot be scraped. Those websites that return data to the console have undefined attributes. This does not work with a sequelize findCreateFind function. This function is needed to ensure data is not duplicated in the database.
+able to feature links for the first website. In future we will be looking toward open APIs instead. Again, this is our beta release - the platform will be undergoing major
 
-At the same time, the data simply does not save because the website being scraped returns undefined attributes which the sequelize library recognizes as invalid. As a result, they do not get stored to the database.
+changes in future for a more user-friendly interface.
+
+*Core Responsibilities:* 
+Kai-Ann Fletcher - Principal Developer
+
+Bruno Mazzitelli - Lead Visionary and Content Strategist
+
+*Tools/languages used:* 
+HTML5, CSS/Bootstrap, JavaScript, React.js, MonogDB, JWT, web-scraping (cheerio)
