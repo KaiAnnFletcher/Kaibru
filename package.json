@@ -29,7 +29,6 @@
   "bugs": {
     "url": "https://github.com/KaiAnnFletcher/Kaibru/issues"
   },
-  
   "dependencies": {
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
