@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/KaiAnnFletcher/Kaibru/issues"
   },
-  "homepage": ".",
+  "homepage": "https://flannel-loon-43163.herokuapp.com/client/",
   "dependencies": {
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
