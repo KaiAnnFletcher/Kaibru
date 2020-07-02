@@ -1,7 +1,6 @@
 {
   "name": "kaibru",
   "version": "1.0.0",
-  "homepage": ".",
   "description": "sustainabililty application",
   "main": "server.js",
   "scripts": {
@@ -30,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/KaiAnnFletcher/Kaibru/issues"
   },
-  "homepage": "https://github.com/KaiAnnFletcher/Kaibru#readme",
+  "homepage": ".",
   "dependencies": {
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
