@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://flannel-loon-43163.herokuapp.com/client/build/",
+  "homepage": "https://flannel-loon-43163.herokuapp.com/client/build",
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
