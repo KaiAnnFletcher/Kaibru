@@ -38,10 +38,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://kaibru_user:kaibru1@ds035
 
 //Send every other request to the React app
 //Define any API routes before this runs
--app.get('/', function (req, res) {
-+app.get('/*', function (req, res) {
-   res.sendFile(path.join(__dirname, "/client/build/index.html"));
- });
+// -app.get('/', function (req, res) {
+// +app.get('/*', function (req, res) {
+//    res.sendFile(path.join(__dirname, "/client/build/index.html"));
+//  });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
