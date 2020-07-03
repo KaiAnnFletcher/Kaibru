@@ -23,7 +23,7 @@ console.log("routes:",routes);
 
 //Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
-   app.use(express.static('/client/build/static'));
+   app.use(express.static('/client/build/static/js'));
 }
 
 app.use(passport.initialize());
