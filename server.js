@@ -15,6 +15,13 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(passport.initialize());
+
+//Passport middleware
+//Passport config
+require("./config/passport")(passport);
+
+
 app.use(cors());
 app.use(logger("dev"));
 //Add routes, both API and view
@@ -26,15 +33,11 @@ if (process.env.NODE_ENV === 'production') {
    app.use(express.static(path.join(__dirname, '/client/build')));
 }
 
-app.use(passport.initialize());
-
-//Passport middleware
-//Passport config
-require("./config/passport")(passport);
-
-// Connect to the Mongo DB 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kaibru");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://kaibru_user:kaibru1@ds035488.mlab.com:35488/heroku_tk82nh0f");
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 //Send every other request to the React app
 //Define any API routes before this runs
@@ -42,6 +45,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://kaibru_user:kaibru1@ds035
 // +app.get('/*', function (req, res) {
 //    res.sendFile(path.join(__dirname, "/client/build/index.html"));
 //  });
+
+// Connect to the Mongo DB 
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kaibru");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://kaibru_user:kaibru1@ds035488.mlab.com:35488/heroku_tk82nh0f");
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
